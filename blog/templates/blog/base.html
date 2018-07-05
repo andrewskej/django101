@@ -1,4 +1,3 @@
-{% extends 'blog/base.html' %}
 {% load staticfiles %}
 <link rel="stylesheet" href="{% static 'css/blog.css'%}">
 <html>
@@ -11,20 +10,23 @@
 <body>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-    {%block content%}
-        {% for post in posts %}
-        <div class="post">
-            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-            <div class="date">
-                <p>published: {{ post.published_data }}</p>
-            </div>
-            <p>{{ post.text|linebreaksbr }}</p>
-        </di>
-        {% endfor %}
-   {% endblock %}
+    <div class="page-header">
+        <h1><a href="/">Django Girls Blog</a></h1>
+    </div>
 
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+               {% block content %}
+               {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <a href="/admin/"><button class="btn_admin">admin</button></a>
 
 <script>
+
 
 </script>
 </body>
